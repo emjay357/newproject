@@ -1,0 +1,64 @@
+.navbar{
+    background-color: black !important;
+  }
+  *{
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+    .contact{
+      font-size: 15px;
+      padding-left: 10px;
+      margin-bottom: 0px;
+    }
+    body{
+      background-color: white;
+  }
+    .navbar-nav{
+      padding-left: 105px;
+    }
+    .taskbar{
+      color: white;
+      font-size: 18px;
+    }
+    .taskbar:hover{
+      background-color: black !important;
+      color: white;
+    }
+    .slide-content{
+      margin-left: 15px;
+    }
+    #backgroundimg{
+      background-image: url(./image/backgroundimg.jpg) !important;
+      background-size: 52% !important;
+      background-repeat: no-repeat !important;
+    }
+    .productname{
+      color: black;
+      font-size: 20px;
+    }
+    #productname1{
+      margin-left: 70px;
+    }
+    #productname2{
+      margin-left: 110px;
+    }
+    #productname3{
+      margin-left: 90px;
+    }
+    #productname4{
+      margin-left: 69px;
+    }
+    #productname5{
+      margin-left: 85px;
+      width: 200px;
+    }
+    .tittle{
+      line-height: 60px;
+      font-size: 35px;
+      font-family: 'Josefin Sans', sans-serif;
+    }
+    .productdiv{
+      margin-top: 40px;
+    }

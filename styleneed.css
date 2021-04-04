@@ -1,0 +1,49 @@
+.search-box{
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+.mainmenu-area {background: none repeat scroll 0 0 rgb(254, 209, 1);
+    font-family: "Roboto Condensed",sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 999;}
+
+.slide-bg {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;background-position: center;background-size: cover
+      }
+.slide-bg:after {
+        background: none repeat scroll 0 0 #000;
+        content: "";
+        height: 100%;
+        left: 0;
+        opacity: 0.6;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+.slide-one {background-image: url(img/slide-1.jpg)}
+.slide-two {background-image: url(img/slide-2.jpg)}
+.slide-three {background-image: url(img/slide-3.jpg)}
+.slide-text {color: #fff;font-size: 18px;font-weight: 200}
+.slide-text h2 {
+        font-size: 45px;font-weight: 200
+      }
+.slide-text-wrapper {
+        display: table;width: 100%;
+      }
+.slide-text {display: table-cell;vertical-align: middle}      
+.readmore {
+    background: none repeat scroll 0 0 rgb(254,209,1);
+    color: #fff;
+    border: 1px solid rgb(254,209,1);
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+}
+.readmore:hover {background: #222;text-decoration: none;color: #fff;border: 1px solid #fff}
