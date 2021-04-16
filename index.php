@@ -31,13 +31,13 @@
                     <div class="row border">
                         <div class="search-box">
                             <div>
-                                <form id="form-search" role="form" method="GET" action="">
+                                <form id="form-search" role="form" method="GET" action="./index.php">
                                     <div>
                                         <div class="input-group ml-4" style="width: 100%">
-                                            <input type="text" name="search" id="search" class="form-control"
-                                                   placeholder="findwhat">
+                                            <input type="text" value="" id="search" class="form-control"
+                                                   placeholder="search">
                                             <span class="input-group-btn">
-                                                <button id="btn-search" value="search" class="btn btn" style="background-color: rgb(254, 209, 1);">
+                                                <button id="btn-search" name="searchbox" class="btn btn" style="background-color: rgb(254, 209, 1);">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </span>
@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="taskbar" href="index.html">Home</a></li>
+                        <li><a class="taskbar" href="index.php">Home</a></li>
                         <li><a class="taskbar" href="">Introduction</a></li>
                         <li><a class="taskbar" href="#">Our Product</a></li>
                         <li><a class="taskbar" href="#">Cart</a></li>
@@ -81,7 +81,7 @@
                                         <h2>We are awesome</h2>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, dolorem, excepturi. Dolore aliquam quibusdam ut quae iure vero exercitationem ratione!</p>
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ab molestiae minus reiciendis! Pariatur ab rerum, sapiente ex nostrum laudantium.</p>
-                                        <a class="readmore">Learn more</a>
+                                        <p>Hello world</p>
                                     </div>
                                 </div>
                             </div>
@@ -91,29 +91,203 @@
             </div>
         </div>
     </div>
-    <p class="tittle" style="margin-left: 565px; font-family: Garamond; margin-top: 15px;">TOP SELLING</p>
+    <div class="productsection divfix">
+    <p class="tittle" style="margin-left: 650px; font-family: Garamond;">TOP SELLING</p>
+    <img src="./image/image/khung.jpg" id="khung">
     <div class="productdiv">
         <div>
-            <img src="./image/image/topselling1.jpg" class="productimg">
-            <img src="./image/image/topselling5.jpg" class="productimg">
-            <img src="./image/image/topselling3.jpg" class="productimg">
-            <img src="./image/image/topselling4.jpg" class="productimg">
-            <img src="./image/image/topselling2.jpg" class="productimg">
-        </div>
-        <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="productid" value="e1" class="productname" id="productname1">LG Smart Inverter</button>
-            <button type="submit" name="productid" value="a1" class="productname" id="productname2">Mini Mocato Air M503</button>
-            <button type="submit" name="productid" value="b1" class="productname" id="productname3">T24034WHT Microwave</button>
-            <button type="submit" name="productid" value="c1" class="productname" id="productname4">Panasonic Countertop</button>
-            <button type="submit" name="productid" value="d1" class="productname" id="productname5">Toshiba Inverter RAS-H</button>
+            <button type="submit" name="fridgeid" value="e1" class="productname">
+            <img src="./image/image/topselling1.jpg" class="productimg">
+            <p>LG Smart Inverter</p>
+            </button>
+            <button type="submit" name="airconditionerid" value="b1" class="productname">
+            <img src="./image/image/topselling2.jpg" class="productimg">
+            <p>LG COOL™ Inverter</p>
+            </button>
+            <button type="submit" name="microwaveid" value="d1" class="productname">
+            <img src="./image/image/topselling3.jpg" class="productimg">
+            <p>T240WHT Microwave</p>
+            </button>
+            <button type="submit" name="microwaveid" value="d2" class="productname">
+            <img src="./image/image/topselling4.jpg" class="productimg">
+            <p>Panasonic Countertop</p>
+            </button>
+            <button type="submit" name="fanid" value="a1" class="productname">
+            <img src="./image/image/topselling5.jpg" class="productimg">
+            <p>Toshiba Inverter RAS-H</p>
+            </button>
         </form>
         </div>
     </div>
+    <div style="background-image: url(./image/blackbackground.jpg);">
+    <div class="productsection divfix" style="background-image: url(./image/windbackground.jpg); background-size: 100%;">
+    <p class="tittle" style="margin-left: 730px; font-family: Garamond; margin-top: 15px; color: white;">Fan</p>
+    <div class="productdiv">
+        <div>
+        <form action="./index.php" method="GET">
+            <button type="submit" name="fanid" value="a1" class="productname">
+            <img src="./image/image/topselling5.jpg" class="productimg">
+            <p>Toshiba Inverter RAS-H</p>
+            </button>
+            <button type="submit" name="fanid" value="a2" class="productname">
+            <img src="./image/image/fan2.jpg" class="productimg">
+            <p>SenKo BXK45</p>
+            </button>
+            <button type="submit" name="fanid" value="a3" class="productname">
+            <img src="./image/image/shopping.jpg" class="productimg">
+            <p>SenKo BX1212</p>
+            </button>
+            <button type="submit" name="fanid" value="a4" class="productname">
+            <img src="./image/image/download.jpg" class="productimg">
+            <p>Tiross TS-952</p>
+            </button>
+            <button type="submit" name="fanid" value="a5" class="productname">
+            <img src="./image/image/images.jpg" class="productimg">
+            <p>Tiross HK-536</p>
+            </button>
+        </form>
+        </div>
+    </div>
+    </div>
+    <div class="productsection divfix" style="background-image: url(./image/snowbackground.jpg);">
+    <p class="tittle" style="margin-left: 657px; font-family: Garamond; margin-top: 15px;">Air conditioner</p>
+    <div class="productdiv">
+        <div>
+        <form action="./index.php" method="GET">
+            <button type="submit" name="airconditionerid" value="b1" class="productname">
+            <img src="./image/image/topselling2.jpg" class="productimg">
+            <p>LG COOL™ Inverter</p>
+            </button>
+            <button type="submit" name="airconditionerid" value="b2" class="productname">
+            <img src="./image/image/air-conditioner.jpg" class="productimg">
+            <p>LG V10ENW1</p>
+            </button>
+            <button type="submit" name="airconditionerid" value="b3" class="productname">
+            <img src="./image/image/airconditioner2.jpg" class="productimg">
+            <p>Toshiba RAS-H10D</p>
+            </button>
+            <button type="submit" name="airconditionerid" value="b4" class="productname">
+            <img src="./image/image/air3.jpg" class="productimg">
+            <p>Daikin FTF25UV1V</p>
+            </button>
+            <button type="submit" name="airconditionerid" value="b5" class="productname">
+            <img src="./image/image/air4.jpg" class="productimg">
+            <p>LG B10END Inverter</p>
+            </button>
+        </form>
+        </div>
+    </div>
+    </div>
+    <div class="productsection divfix" style="background-image: url(./image/Well-Lit-LED-Bulbs.jpg); background-size:60%;">
+    <p class="tittle" style="margin-left: 692px; font-family: Garamond; margin-top: 15px; color:white;">Light bulb</p>
+    <div class="productdiv">
+        <div>
+        <form action="./index.php" method="GET">
+            <button type="submit" name="lightbulbid" value="c1" class="productname">
+            <img src="./image/image/topselling1.jpg" class="productimg">
+            <p>LG Smart Inverter</p>
+            </button>
+            <button type="submit" name="lightbulbid" value="c2" class="productname">
+            <img src="./image/image/topselling2.jpg" class="productimg">
+            <p>LG COOL™ Inverter</p>
+            </button>
+            <button type="submit" name="lightbulbid" value="c3" class="productname">
+            <img src="./image/image/topselling3.jpg" class="productimg">
+            <p>T240WHT Microwave</p>
+            </button>
+            <button type="submit" name="lightbulbid" value="c4" class="productname">
+            <img src="./image/image/topselling4.jpg" class="productimg">
+            <p>Panasonic Countertop</p>
+            </button>
+            <button type="submit" name="lightbulbid" value="c5" class="productname">
+            <img src="./image/image/topselling5.jpg" class="productimg">
+            <p>Toshiba Inverter RAS-H</p>
+            </button>
+        </form>
+        </div>
+    </div>
+    </div>
+    <div class="productsection divfix" style="background-image: url(./image/icebackground.jpg); background-size: 100%;">
+    <p class="tittle" style="margin-left: 720px; font-family: Garamond; margin-top: 15px;">Fridge</p>
+    <div class="productdiv">
+        <div>
+        <form action="./index.php" method="GET">
+            <button type="submit" name="fridgeid" value="e1" class="productname">
+            <img src="./image/image/topselling1.jpg" class="productimg">
+            <p>LG Smart Inverter</p>
+            </button>
+            <button type="submit" name="fridgeid" value="e2" class="productname">
+            <img src="./image/image/topselling2.jpg" class="productimg">
+            <p>LG COOL™ Inverter</p>
+            </button>
+            <button type="submit" name="fridgeid" value="e3" class="productname">
+            <img src="./image/image/topselling3.jpg" class="productimg">
+            <p>T240WHT Microwave</p>
+            </button>
+            <button type="submit" name="fridgeid" value="e4" class="productname">
+            <img src="./image/image/topselling4.jpg" class="productimg">
+            <p>Panasonic Countertop</p>
+            </button>
+            <button type="submit" name="fridgeid" value="e5" class="productname">
+            <img src="./image/image/topselling5.jpg" class="productimg">
+            <p>Toshiba Inverter RAS-H</p>
+            </button>
+        </form>
+        </div>
+    </div>
+    </div>
+    <div class="productsection divfix" style="background-image: url(./image/plasma.jpg);">
+    <p class="tittle" style="margin-left: 690px; font-family: Garamond; margin-top: 15px; color: white;">Microwave</p>
+    <div class="productdiv">
+        <div>
+        <form action="./index.php" method="GET">
+            <button type="submit" name="microwaveid" value="d1" class="productname">
+            <img src="./image/image/topselling4.jpg" class="productimg">
+            <p>Panasonic Countertop</p>
+            </button>
+            <button type="submit" name="microwaveid" value="d2" class="productname">
+            <img src="./image/image/topselling3.jpg" class="productimg">
+            <p>T240WHT Microwave</p>
+            </button>
+            <button type="submit" name="microwaveid" value="d3" class="productname">
+            <img src="./image/image/topselling1.jpg" class="productimg">
+            <p>LG Smart Inverter</p>
+            </button>
+            <button type="submit" name="microwaveid" value="d4" class="productname">
+            <img src="./image/image/topselling2.jpg" class="productimg">
+            <p>LG COOL™ Inverter</p>
+            </button>
+            <button type="submit" name="microwaveid" value="d5" class="productname">
+            <img src="./image/image/topselling5.jpg" class="productimg">
+            <p>Toshiba Inverter RAS-H</p>
+            </button>
+        </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    
 <?php
-if(isset($_GET['productid']))
+if(isset($_GET['fanid']))
 {
-redirect("http://localhost:83/product.php?productid=".$_GET['productid']);
+redirect("http://localhost:83/fan.php?fanid=".$_GET['fanid']);
+}
+if(isset($_GET['airconditionerid']))
+{
+redirect("http://localhost:83/airconditioner.php?airconditionerid=".$_GET['airconditionerid']);
+}
+if(isset($_GET['fridgeid']))
+{
+redirect("http://localhost:83/fridge.php?fridgeid=".$_GET['fridgeid']);
+}
+if(isset($_GET['lightbulbid']))
+{
+redirect("http://localhost:83/lightbulb.php?lightbulbid=".$_GET['lightbulbid']);
+}
+if(isset($_GET['microwaveid']))
+{
+redirect("http://localhost:83/microwave.php?microwaveid=".$_GET['microwaveid']);
 }
 function redirect($url){
 echo '<script>window.location="'.$url.'"</script>';

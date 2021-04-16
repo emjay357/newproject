@@ -16,25 +16,38 @@ class product {
         $sql = "USE eproject";
         $this->connection->exec($sql);
         $sql = "CREATE TABLE IF NOT EXISTS product(".
-                "PRODUCT_ID CHAR(100) NOT NULL UNIQUE,".
-                "PRODUCT_NAME VARCHAR(100),".
-                "PRODUCTIMG VARCHAR(40)".");";
+                "PRODUCT_ID CHAR(5) NOT NULL UNIQUE,".
+                "PRODUCT_NAME VARCHAR(200),".
+                "PRODUCTIMG VARCHAR(100),".
+                "para1 VARCHAR(50),".
+                "para2 VARCHAR(50),".
+                "para3 VARCHAR(50),".
+                "para4 VARCHAR(50),".
+                "para5 VARCHAR(50),".
+                "price VARCHAR(50),".
+                "infomation VARCHAR(2000)".");";
         $this->connection->exec($sql);
     }
-    public function inputproduct($productid,$productname,$productimg){
-        $sql = "INSERT INTO product(PRODUCT_ID ,PRODUCT_NAME ,PRODUCTIMG) ".
-               "VALUES(:id ,:productname ,:img);";
+    public function inputproduct($productid,$productname,$productimg,
+                                 $para1,$para2,$para3,$para4,$para5,$price,$info){
+        $sql = "INSERT INTO product(PRODUCT_ID ,PRODUCT_NAME ,PRODUCTIMG ,para1 ,para2 ,para3 ,para4 ,para5 ,price ,infomation) ".
+               "VALUES(:id ,:productname ,:img , :p1, :p2, :p3, :p4, :p5, :price, :info);";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':id', $productid);
         $stmt->bindParam(':productname', $productname);
         $stmt->bindParam(':img', $productimg);
+        $stmt->bindParam(':p1', $para1);
+        $stmt->bindParam(':p2', $para2);
+        $stmt->bindParam(':p3', $para3);
+        $stmt->bindParam(':p4', $para4);
+        $stmt->bindParam(':p5', $para5);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':info', $info);
         $stmt->execute();
-                echo "$productid"."<br>";
-                echo "product name: $productname"."<br>";
-                echo "product img: $productimg";
     }
     public function productsearch($productid){
-        $sql = "SELECT PRODUCT_NAME AS productn, PRODUCTIMG AS producti FROM product".
+        $sql = "SELECT PRODUCT_NAME AS productn, PRODUCTIMG AS producti, para1 AS p1, 
+        para2 AS p2, para3 AS p3, para4 AS p4, para5 AS p5, price AS price, infomation AS info FROM product".
                " WHERE PRODUCT_ID = :productid";                    
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(':productid', $productid);
@@ -42,7 +55,8 @@ class product {
         $stmt->execute();
         $result = $stmt->fetch();
         return array("productname" => $result["productn"], 
-                     "productimg" => $result["producti"]); 
+                     "productimg" => $result["producti"],"para1" => $result["p1"], "para2" => $result["p2"],"para3" => $result["p3"], 
+                     "para4" => $result["p4"], "para5" => $result["p5"], "price" => $result["price"], "infomation" => $result["info"]); 
     }
 }
     ?>

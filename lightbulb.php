@@ -19,40 +19,19 @@
 <body>  
 <?php
     require "database.php";
-    if(isset($_GET['fan']) == TRUE){
-    $productid = $_GET['fan'];
+    if(isset($_GET['fridgeid']) == TRUE){
+    $productid = $_GET['fridgeid'];
     $product = new product;   
     $data = $product->productsearch($productid);
     $productname = $data["productname"];
     $productimg = $data["productimg"];
-}
-    if(isset($_GET['airconditioner']) == TRUE){
-    $productid = $_GET['airconditioner'];
-    $product = new product;   
-    $data = $product->productsearch($productid);
-    $productname = $data["productname"];
-    $productimg = $data["productimg"];
-}
-    if(isset($_GET['lightbulb']) == TRUE){
-    $productid = $_GET['lightbulb'];
-    $product = new product;   
-    $data = $product->productsearch($productid);
-    $productname = $data["productname"];
-    $productimg = $data["productimg"];
-}
-    if(isset($_GET['microwave']) == TRUE){
-    $productid = $_GET['microwave'];
-    $product = new product;   
-    $data = $product->productsearch($productid);
-    $productname = $data["productname"];
-    $productimg = $data["productimg"];
-}
-    if(isset($_GET['fridge']) == TRUE){
-    $productid = $_GET['fridge'];
-    $product = new product;   
-    $data = $product->productsearch($productid);
-    $productname = $data["productname"];
-    $productimg = $data["productimg"];
+    $para1 = $data["para1"];
+    $para2 = $data["para2"];
+    $para3 = $data["para3"];
+    $para4 = $data["para4"];
+    $para5 = $data["para5"];
+    $price = $data["price"];
+    $info = $data["infomation"];
 }
 ?>
    <div style="background-color: black;">
@@ -114,42 +93,21 @@
                     <div class="slide-text">
                         <div class="container">
                             <div class="row">
-                            <?php
-                                $link = "./image/image/topselling1.jpg";
-                            ?>
                                 <div class="productdivinfo">
-                                    <p class="productnameinfo">LG Smart Inverter</p>
-                                    <p class="productpriceinfo">1.000.000 VND</p>
+                                <img src="<?php echo $productimg; ?>" class="productimginfo">
+                                    <p class="productnameinfo"><?php echo $productname; ?></p>
+                                    <p class="productpriceinfo"><?php echo $price; ?></p>
                                 </div>
                                 <div class="col-md-6 col-md-offset-6">
                                 <p class="productintro">Product introduction</p>
-                                <p class="productintrotext">Detailed Specifications Refrigerator Samsung Inverter 208 liters RT20HAR8DBU / SV
-Product characteristics,
-Usable capacity: 209 liters,
-Number of doors: 2 wings,
-Number of users: 2 - 3 people,
-Freezer capacity: 54 liters,
-Freezer capacity: 155 liters,
-Inverter technology: Inverter Refrigerator,
-Declared power consumption according to TCVN: ~ 31.2 kWh / day,
-Power saving mode: Digital Inverter Technology,
-Refrigeration technology: Multi-dimensional cooling,
-Antibacterial and deodorizing technology: Deodorizer activated carbon filter,
-Food preservation technology: Large vegetable compartment keeps Big Box moisture,
-Utilities: Large vegetable compartment, Inverter saves electricity,
-Cabinet type: Top freezer,
-Refrigerator door material: Mirror polish metal,
-Material of freezer tray: Tempered glass,
-Size - Weight: Height 1.520 mm - Width 620 mm - Depth 555 mm - Weight 50.5 kg,
-Place of production: Vietnam Origin: Korean, 
-Release date: 2020,
-Genuine warranty: 24 months,
-Brand: LG.</p>
+                                    <p class="productintrotext"><?php echo $info; ?></p>
                                     <div class="slide-content">
                                         <div style="display: inline-block;" id="feature"><p>Basic product parameter</p>
                                         <ul style="display: inline;">
-                                            <li id="parameter"><p>Capacity: 209 (L)</p></li>
-                                            <li id="parameter"><p>Size<span style="margin-left: 48px;">: 555x1,520x620</span></p></li>
+                                            <li id="parameter"><p>Capacity:<?php echo $para1; ?></p></li>
+                                            <li id="parameter"><p>Size<span style="margin-left: 48px;">:<?php echo $para2; ?></span></p></li>
+                                            <li id="parameter"><p>Wattage<span style="margin-left: 7px;">:<?php echo " ".$para3; ?></span></p></li>
+                                            <li id="parameter"><p>Origin<span style="margin-left: 31.5px;">:<?php echo " ".$para4; ?></span></p></li>
                                         </ul>
                                         </div>
                                     </div>

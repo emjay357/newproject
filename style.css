@@ -34,27 +34,9 @@
       background-size: 52% !important;
       background-repeat: no-repeat !important;
     }
-    .productname{
-      color: black;
-      font-size: 20px;
-    }
-    #productname1{
-      margin-left: 70px;
-    }
-    #productname2{
-      margin-left: 110px;
-    }
-    #productname3{
-      margin-left: 90px;
-    }
-    #productname4{
-      margin-left: 69px;
-    }
-    #productname5{
-      margin-left: 85px;
-      width: 200px;
-    }
     .tittle{
+      position: relative;
+      margin-top: -35px;
       line-height: 60px;
       font-size: 35px;
       font-family: 'Josefin Sans', sans-serif;
@@ -69,4 +51,11 @@
       background-image: url(./image/backgroundproductimg.jpg) !important;
       background-size: 100% !important;
       background-repeat: no-repeat !important;
+    }
+    #khung{
+      margin-left: 36.6%;
+    }
+    .divfix{
+      height: 416px;
+      margin-top: 60px !important;
     }
