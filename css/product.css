@@ -1,5 +1,5 @@
 .productimg{
-    width: 220px;
+    width: 168px;
     padding-top: 6px;
 }
 .productimginfo{
@@ -7,7 +7,6 @@
 }
 .productdivinfo{
   position: absolute;
-  margin-left: 70px;
   margin-top: 70px;
   display: inline-block;
 }
@@ -16,7 +15,7 @@
   font-size: 27px;
   display: inline-block;
   position: absolute;
-  margin-left: 20px;
+  margin-left: 16px;
 }
 .productpriceinfo{
   position: absolute;
@@ -52,9 +51,12 @@
   .productname{
     color: white;
     font-size: 20px;
-    margin-left: 60px;
+    margin-left: 57px;
     border: 0px;
     background-color: black;
+  }
+  .productnamefirst{
+    margin-left: -16px !important;
   }
   .productsection{
     margin-top: 100px;

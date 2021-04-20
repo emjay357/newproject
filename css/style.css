@@ -39,6 +39,10 @@
       line-height: 60px;
       font-size: 35px;
       font-family: 'Josefin Sans', sans-serif;
+      text-align: center;
+      font-family: Garamond;
+      margin-top: 15px;
+      color: white;
     }
     .productdiv{
       margin-top: 40px;
@@ -49,9 +53,6 @@
     #backgroundimgproduct{
       background-size: 100% !important;
       background-repeat: no-repeat !important;
-    }
-    #khung{
-      margin-left: 36.6%;
     }
     .divfix{
       height: 416px;

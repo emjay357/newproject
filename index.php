@@ -147,12 +147,15 @@
         </div>        
     </div>
     <div class="productsection divfix">
-    <p class="tittle" style="margin-left: 650px; font-family: Garamond;">TOP SELLING</p>
-    <img src="./image/image/khung.jpg" id="khung">
+    <p class="tittle" style="color: black; ">TOP SELLING</p>
+    <center>
+    <img src="./image/image/khung.jpg">
+    </center>
+    <center>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="fridgeid" value="e1" class="productname">
+            <button type="submit" name="fridgeid" value="e1" class="productname productnamefirst">
             <img src="./image/image/topselling1.jpg" class="productimg">
             <p>LG Smart Inverter</p>
             </button>
@@ -177,11 +180,11 @@
     </div>
     <div style="background-color: rgb(0, 0, 0);">
     <div id="Fan" class="productsection divfix" style="background-image: url(./image/buttonbg1.jpg); background-size: 100%;">
-    <p class="tittle" style="margin-left: 730px; font-family: Garamond; margin-top: 15px; color: white;">Fan</p>
+    <p class="tittle">Fan</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="fanid" value="a1" class="productname">
+            <button type="submit" name="fanid" value="a1" class="productname productnamefirst">
             <img src="./image/image/topselling5.jpg" class="productimg">
             <p>Toshiba Inverter RAS-H</p>
             </button>
@@ -206,11 +209,11 @@
     </div>
     </div>
     <div id="Airconditioner" class="productsection divfix" style="background-image: url(./image/buttonbg2.jpg);background-size: 100%;">
-    <p class="tittle" style="margin-left: 657px; font-family: Garamond; margin-top: 15px; color: white;">Air conditioner</p>
+    <p class="tittle">Air conditioner</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="airconditionerid" value="b1" class="productname">
+            <button type="submit" name="airconditionerid" value="b1" class="productname productnamefirst">
             <img src="./image/image/topselling2.jpg" class="productimg">
             <p>LG COOL™ Inverter</p>
             </button>
@@ -235,11 +238,11 @@
     </div>
     </div>
     <div id="Lightbulb" class="productsection divfix" style="background-image: url(./image/buttonbg3.jpg); background-size: 100%;">
-    <p class="tittle" style="margin-left: 692px; font-family: Garamond; margin-top: 15px; color:white;">Light bulb</p>
+    <p class="tittle">Light bulb</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="lightbulbid" value="c1" class="productname">
+            <button type="submit" name="lightbulbid" value="c1" class="productname productnamefirst">
             <img src="./image/image/lightbulb1.jpg" class="productimg">
             <p>Smart light C-life</p>
             </button>
@@ -264,11 +267,11 @@
     </div>
     </div>
     <div id="Fridge" class="productsection divfix" style="background-image: url(./image/buttonbg4.jpg); background-size: 100%;">
-    <p class="tittle" style="margin-left: 720px; font-family: Garamond; margin-top: 15px; color: white;">Fridge</p>
+    <p class="tittle">Fridge</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="fridgeid" value="e1" class="productname">
+            <button type="submit" name="fridgeid" value="e1" class="productname productnamefirst">
             <img src="./image/image/topselling1.jpg" class="productimg">
             <p>LG Smart Inverter</p>
             </button>
@@ -293,11 +296,11 @@
     </div>
     </div>
     <div id="Microwave" class="productsection divfix" style="background-image: url(./image/buttonbg5.jpg); background-size: 100%;">
-    <p class="tittle" style="margin-left: 690px; font-family: Garamond; margin-top: 15px; color: white;">Microwave</p>
+    <p class="tittle">Microwave</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
-            <button type="submit" name="microwaveid" value="d1" class="productname">
+            <button type="submit" name="microwaveid" value="d1" class="productname productnamefirst">
             <img src="./image/image/topselling4.jpg" class="productimg">
             <p>Panasonic Countertop</p>
             </button>
@@ -323,6 +326,7 @@
     </div>
     <div style="height: 60px;"></div>
     </div>
+    </center>
     <div class="footer-top-area">
         <div class="container">
             <div class="row">
