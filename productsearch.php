@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>     
+    <title>Document</title>      
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">  
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -12,32 +12,39 @@
     <link rel="stylesheet" href="./css/styleneed.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/search.css">
 </head>
-<body>  
+<body>
 <?php
-    require "database.php";
-    if(isset($_GET['airconditionerid']) == TRUE){
-    $productid = $_GET['airconditionerid'];
-    $product = new product;   
-    $data = $product->productsearch($productid);
-    $productname = $data["productname"];
-    $productimg = $data["productimg"];
-    $para1 = $data["para1"];
-    $para2 = $data["para2"];
-    $para3 = $data["para3"];
-    $para4 = $data["para4"];
-    $para5 = $data["para5"];
-    $price = $data["price"];
-    $info = $data["infomation"];
+ require "database.php";
+ if(isset($_GET['search'])){
+ $productname = $_GET['search'];
+ $product = new product;   
+ $data = $product->searchbox($productname);
+ $numberproduct = $data["numberofsearch"];
+ $productsearcharr = $data["productsearcharr"];
+ $noresult = "Result found";
+ $buttonbg[0] = "./image/buttonbg1.jpg";
+ $buttonbg[1] = "./image/buttonbg2.jpg";
+ $buttonbg[2] = "./image/buttonbg3.jpg";
+ $buttonbg[3] = "./image/buttonbg4.jpg";
+ $buttonbg[4] = "./image/buttonbg5.jpg";
+ $buttonbg[5] = "./image/buttonbg6.jpg";
+ if($numberproduct==0){
+    $noresult = "No result found";
+    for($i=$numberproduct;$i<6;$i++){
+        $buttonbg[$i] = "";
+     }
+ }else{
+     for($i=$numberproduct;$i<6;$i++){
+        $buttonbg[$i] = "";
+     }
+ }
+}else{
+    $noresult = "No result found";
 }
-if(isset($_GET['search']) == TRUE){
-    redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
-    }
-function redirect($url){
-        echo '<script>window.location="'.$url.'"</script>';
-    }
 ?>
-   <div style="background-color: black;">
+    <div style="background-color: black;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -51,13 +58,13 @@ function redirect($url){
                     <div class="row border">
                         <div class="search-box">
                             <div>
-                                <form id="form-search" role="form" method="GET" action="">
+                                <form id="form-search" role="form" method="GET" action="./index.php">
                                     <div>
                                         <div class="input-group ml-4" style="width: 100%">
-                                            <input type="text" name="search" id="search" class="form-control"
+                                            <input type="text" name="search" value="" id="search" class="form-control"
                                                    placeholder="search">
                                             <span class="input-group-btn">
-                                                <button id="btn-search" value="search" class="btn btn" style="background-color: rgb(254, 209, 1);">
+                                            <button id="btn-search" class="btn btn" style="background-color: rgb(254, 209, 1);">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </span>
@@ -88,41 +95,45 @@ function redirect($url){
             </div>
         </div>
     </div>
-    <div class="carousel-inner overwirte" role="listbox" id="backgroundimgproduct" 
-    style="background-image: url(./image/backgroundproductimg.jpg) !important;">
-        <div>
-            <div class="single-slide">
-                <div class="slide-bg slide-one"></div>
-                <div class="slide-text-wrapper">
-                    <div class="slide-text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="productdivinfo">
-                                <img src="<?php echo $productimg; ?>" class="productimginfo">
-                                    <p class="productnameinfo"><?php echo $productname; ?></p>
-                                    <p class="productpriceinfo"><?php echo $price; ?></p>
-                                </div>
-                                <div class="col-md-6 col-md-offset-6">
-                                <p class="productintro">Product introduction</p>
-                                    <p class="productintrotext"><?php echo $info; ?></p>
-                                    <div class="slide-content">
-                                        <div style="display: inline-block;" id="feature"><p>Basic product parameter</p>
-                                        <ul style="display: inline;">
-                                            <li id="parameter"><p>indoor size<span style="margin-left: 14px;">:<?php echo " ".$para1; ?></p></li>
-                                            <li id="parameter"><p>outdoor size:<?php echo " ".$para1; ?></p></li>
-                                            <li id="parameter"><p>Wattage<span style="margin-left: 43px;">:<?php echo " ".$para3; ?></span></p></li>
-                                            <li id="parameter"><p>Origin<span style="margin-left: 68.5px;">:<?php echo " ".$para4; ?></span></p></li>
-                                        </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h3 style="margin: 0 auto; text-align:center; line-height: 121px; background-color:rgb(77, 77, 77); color:white;"><?php echo $noresult; ?></h3>
+    <form action="./productsearch.php" method="GET">
+    <button type="submit" name="<?php echo $productsearcharr[0][4]; ?>" value="<?php echo $productsearcharr[0][3]; ?>" 
+        class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[0]; ?>);">    
+        <img src="<?php echo $productsearcharr[0][1]; ?>" alt="" class="productimginfo imageproductbutton">
+        <p class="productnamesearch"><?php echo $productsearcharr[0][0]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[0][2]; ?></p>
+    </button><br>
+    <button type="submit" name="<?php echo $productsearcharr[1][4]; ?>" value="<?php echo $productsearcharr[1][3]; ?>" 
+        class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[1]; ?>);">      
+        <img src="<?php echo $productsearcharr[1][1]; ?>" alt="" class="productimginfo imageproductbutton">
+        <p class="productnamesearch"><?php echo $productsearcharr[1][0]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[1][2]; ?></p>
+    </button><br>
+    <button type="submit" name="<?php echo $productsearcharr[2][4]; ?>" value="<?php echo $productsearcharr[2][3]; ?>" 
+        class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[2]; ?>);">  
+        <img src="<?php echo $productsearcharr[2][1]; ?>" alt="" class="productimginfo imageproductbutton">
+        <p class="productnamesearch"><?php echo $productsearcharr[2][0]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[2][2]; ?></p>
+    </button><br>
+    <button type="submit" name="<?php echo $productsearcharr[3][4]; ?>" value="<?php echo $productsearcharr[3][3]; ?>" 
+        class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[3]; ?>);">    
+        <img src="<?php echo $productsearcharr[3][1]; ?>" alt="" class="productimginfo imageproductbutton">
+        <p class="productnamesearch"><?php echo $productsearcharr[3][0]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[3][2]; ?></p>
+    </button><br>
+    <button type="submit" name="<?php echo $productsearcharr[4][4]; ?>" value="<?php echo $productsearcharr[4][3]; ?>" 
+        class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[4]; ?>);">    
+        <img src="<?php echo $productsearcharr[4][1]; ?>" alt="" class="productimginfo imageproductbutton">
+        <p class="productnamesearch"><?php echo $productsearcharr[4][0]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[4][2]; ?></p>
+    </button><br>
+    <button type="submit" name="<?php echo $productsearcharr[5][4]; ?>" value="<?php echo $productsearcharr[5][3]; ?>" 
+        class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[5]; ?>);">    
+        <img src="<?php echo $productsearcharr[5][1]; ?>" alt="" class="productimginfo imageproductbutton">
+        <p class="productnamesearch"><?php echo $productsearcharr[5][0]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[4][2]; ?></p>
+    </button><br>
+    </form>
     <div class="footer-top-area">
         <div class="container">
             <div class="row">
@@ -184,5 +195,30 @@ function redirect($url){
             </div>
         </div>
     </div>
+    <?php
+if(isset($_GET['fanid']))
+{
+redirect("http://localhost:83/fan.php?fanid=".$_GET['fanid']);
+}
+if(isset($_GET['airconditionerid']))
+{
+redirect("http://localhost:83/airconditioner.php?airconditionerid=".$_GET['airconditionerid']);
+}
+if(isset($_GET['fridgeid']))
+{
+redirect("http://localhost:83/fridge.php?fridgeid=".$_GET['fridgeid']);
+}
+if(isset($_GET['lightbulbid']))
+{
+redirect("http://localhost:83/lightbulb.php?lightbulbid=".$_GET['lightbulbid']);
+}
+if(isset($_GET['microwaveid']))
+{
+redirect("http://localhost:83/microwave.php?microwaveid=".$_GET['microwaveid']);
+}
+function redirect($url){
+echo '<script>window.location="'.$url.'"</script>';
+}
+?>
 </body>
 </html>

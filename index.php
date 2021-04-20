@@ -4,20 +4,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>   
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">  
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="./styleneed.css">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./product.css">
+    <link rel="stylesheet" href="./css/styleneed.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/slider.css">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div style="background-color: black;">
+<div style="background-color: black;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -34,10 +34,10 @@
                                 <form id="form-search" role="form" method="GET" action="./index.php">
                                     <div>
                                         <div class="input-group ml-4" style="width: 100%">
-                                            <input type="text" value="" id="search" class="form-control"
+                                            <input type="text" name="search" value="" id="search" class="form-control"
                                                    placeholder="search">
                                             <span class="input-group-btn">
-                                                <button id="btn-search" name="searchbox" class="btn btn" style="background-color: rgb(254, 209, 1);">
+                                            <button id="btn-search" class="btn btn" style="background-color: rgb(254, 209, 1);">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </span>
@@ -51,37 +51,91 @@
         </div>
     </div>
     </div>
-    <div class="mainmenu-area">
+    <div id="navbar" class="mainmenu-area">
         <div class="container">
             <div class="row">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="taskbar" href="index.php">Home</a></li>
-                        <li><a class="taskbar" href="">Introduction</a></li>
-                        <li><a class="taskbar" href="#">Our Product</a></li>
-                        <li><a class="taskbar" href="#">Cart</a></li>
-                        <li><a class="taskbar" href="">Checkout</a></li>
-                        <li><a class="taskbar" href="#">Category</a></li>
-                        <li><a class="taskbar" href="#">Contact Us</a></li>
+                        <li><a class="taskbar" href="#Fan">Fan</a></li>
+                        <li><a class="taskbar" href="#Airconditioner">Air conditioner</a></li>
+                        <li><a class="taskbar" href="#Lightbulb">Light bulb</a></li>
+                        <li><a class="taskbar" href="#Fridge">Fridge</a></li>
+                        <li><a class="taskbar" href="#Microwave">Microwave</a></li>
+                        <li><a class="taskbar" href="contactus.php">Contact Us</a></li>
                     </ul>
                 </div>  
             </div>
         </div>
     </div>
-    <div style="background-color: black;" class="carousel-inner" role="listbox">
-        <div id="backgroundimg">
-            <div class="single-slide">
-                <div class="slide-bg slide-one"></div>
-                <div class="slide-text-wrapper">
-                    <div class="slide-text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-6">
-                                    <div class="slide-content">
-                                        <h2>We are awesome</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, dolorem, excepturi. Dolore aliquam quibusdam ut quae iure vero exercitationem ratione!</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi ab molestiae minus reiciendis! Pariatur ab rerum, sapiente ex nostrum laudantium.</p>
-                                        <p>Hello world</p>
+    <div class="slider-area">
+        <div id="slide-list" class="carousel carousel-fade slide" data-ride="carousel">
+            <div class="slide-bulletz">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol class="carousel-indicators slide-indicators">
+                                <li data-target="#slide-list" data-slide-to="0" class="active"></li>
+                                <li data-target="#slide-list" data-slide-to="1"></li>
+                                <li data-target="#slide-list" data-slide-to="2"></li>
+                            </ol>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <div class="single-slide">
+                        <div class="slide-bg" style="background-image: url(./image/slide-1.jpg);"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h2>The Incandescent bulbs</h2>
+                                                <p>Coming soon product</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="single-slide">
+                        <div class="slide-bg" style="background-image: url(./image/slide-2.jpg);"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h2>18V Drill Master All Color</h2>
+                                                <p>Coming soon product</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="single-slide">
+                        <div class="slide-bg" style="background-image: url(./image/slide-3.jpg);"></div>
+                        <div class="slide-text-wrapper">
+                            <div class="slide-text">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-6 col-md-offset-6">
+                                            <div class="slide-content">
+                                                <h2>SAMSUNG new fridge generation</h2>
+                                                <p>Top selling</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +143,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+        </div>        
     </div>
     <div class="productsection divfix">
     <p class="tittle" style="margin-left: 650px; font-family: Garamond;">TOP SELLING</p>
@@ -120,8 +175,8 @@
         </form>
         </div>
     </div>
-    <div style="background-image: url(./image/blackbackground.jpg);">
-    <div class="productsection divfix" style="background-image: url(./image/windbackground.jpg); background-size: 100%;">
+    <div style="background-color: rgb(0, 0, 0);">
+    <div id="Fan" class="productsection divfix" style="background-image: url(./image/buttonbg1.jpg); background-size: 100%;">
     <p class="tittle" style="margin-left: 730px; font-family: Garamond; margin-top: 15px; color: white;">Fan</p>
     <div class="productdiv">
         <div>
@@ -150,8 +205,8 @@
         </div>
     </div>
     </div>
-    <div class="productsection divfix" style="background-image: url(./image/snowbackground.jpg);">
-    <p class="tittle" style="margin-left: 657px; font-family: Garamond; margin-top: 15px;">Air conditioner</p>
+    <div id="Airconditioner" class="productsection divfix" style="background-image: url(./image/buttonbg2.jpg);background-size: 100%;">
+    <p class="tittle" style="margin-left: 657px; font-family: Garamond; margin-top: 15px; color: white;">Air conditioner</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
@@ -179,37 +234,37 @@
         </div>
     </div>
     </div>
-    <div class="productsection divfix" style="background-image: url(./image/Well-Lit-LED-Bulbs.jpg); background-size:60%;">
+    <div id="Lightbulb" class="productsection divfix" style="background-image: url(./image/buttonbg3.jpg); background-size: 100%;">
     <p class="tittle" style="margin-left: 692px; font-family: Garamond; margin-top: 15px; color:white;">Light bulb</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
             <button type="submit" name="lightbulbid" value="c1" class="productname">
-            <img src="./image/image/topselling1.jpg" class="productimg">
-            <p>LG Smart Inverter</p>
+            <img src="./image/image/lightbulb1.jpg" class="productimg">
+            <p>Smart light C-life</p>
             </button>
             <button type="submit" name="lightbulbid" value="c2" class="productname">
-            <img src="./image/image/topselling2.jpg" class="productimg">
-            <p>LG COOL™ Inverter</p>
+            <img src="./image/image/lightbulb2.jpg" class="productimg">
+            <p>LED light FG37</p>
             </button>
             <button type="submit" name="lightbulbid" value="c3" class="productname">
-            <img src="./image/image/topselling3.jpg" class="productimg">
-            <p>T240WHT Microwave</p>
+            <img src="./image/image/lightbulb3.jpg" class="productimg">
+            <p>LED light CM39</p>
             </button>
             <button type="submit" name="lightbulbid" value="c4" class="productname">
-            <img src="./image/image/topselling4.jpg" class="productimg">
-            <p>Panasonic Countertop</p>
+            <img src="./image/image/lightbulb4.jpg" class="productimg">
+            <p>MAXBEN LED KJ17</p>
             </button>
             <button type="submit" name="lightbulbid" value="c5" class="productname">
-            <img src="./image/image/topselling5.jpg" class="productimg">
-            <p>Toshiba Inverter RAS-H</p>
+            <img src="./image/image/lightbulb5.jpg" class="productimg">
+            <p>YTA-95Z1</p>
             </button>
         </form>
         </div>
     </div>
     </div>
-    <div class="productsection divfix" style="background-image: url(./image/icebackground.jpg); background-size: 100%;">
-    <p class="tittle" style="margin-left: 720px; font-family: Garamond; margin-top: 15px;">Fridge</p>
+    <div id="Fridge" class="productsection divfix" style="background-image: url(./image/buttonbg4.jpg); background-size: 100%;">
+    <p class="tittle" style="margin-left: 720px; font-family: Garamond; margin-top: 15px; color: white;">Fridge</p>
     <div class="productdiv">
         <div>
         <form action="./index.php" method="GET">
@@ -218,26 +273,26 @@
             <p>LG Smart Inverter</p>
             </button>
             <button type="submit" name="fridgeid" value="e2" class="productname">
-            <img src="./image/image/topselling2.jpg" class="productimg">
-            <p>LG COOL™ Inverter</p>
+            <img src="./image/image/fridge2.jpg" class="productimg">
+            <p>Samsung Inventer</p>
             </button>
             <button type="submit" name="fridgeid" value="e3" class="productname">
-            <img src="./image/image/topselling3.jpg" class="productimg">
-            <p>T240WHT Microwave</p>
+            <img src="./image/image/fridge3.jpg" class="productimg">
+            <p>Toshiba KF316</p>
             </button>
             <button type="submit" name="fridgeid" value="e4" class="productname">
-            <img src="./image/image/topselling4.jpg" class="productimg">
-            <p>Panasonic Countertop</p>
+            <img src="./image/image/fridge4.jpg" class="productimg">
+            <p>Panasonic MD86</p>
             </button>
             <button type="submit" name="fridgeid" value="e5" class="productname">
-            <img src="./image/image/topselling5.jpg" class="productimg">
-            <p>Toshiba Inverter RAS-H</p>
+            <img src="./image/image/fridge5.jpg" class="productimg">
+            <p>Toshiba JR435</p>
             </button>
         </form>
         </div>
     </div>
     </div>
-    <div class="productsection divfix" style="background-image: url(./image/plasma.jpg);">
+    <div id="Microwave" class="productsection divfix" style="background-image: url(./image/buttonbg5.jpg); background-size: 100%;">
     <p class="tittle" style="margin-left: 690px; font-family: Garamond; margin-top: 15px; color: white;">Microwave</p>
     <div class="productdiv">
         <div>
@@ -251,24 +306,89 @@
             <p>T240WHT Microwave</p>
             </button>
             <button type="submit" name="microwaveid" value="d3" class="productname">
-            <img src="./image/image/topselling1.jpg" class="productimg">
-            <p>LG Smart Inverter</p>
+            <img src="./image/image/microwave3.jpg" class="productimg">
+            <p>Panasonic MY435</p>
             </button>
             <button type="submit" name="microwaveid" value="d4" class="productname">
-            <img src="./image/image/topselling2.jpg" class="productimg">
-            <p>LG COOL™ Inverter</p>
+            <img src="./image/image/microwave4.jpg" class="productimg">
+            <p>LG GF316</p>
             </button>
             <button type="submit" name="microwaveid" value="d5" class="productname">
-            <img src="./image/image/topselling5.jpg" class="productimg">
-            <p>Toshiba Inverter RAS-H</p>
+            <img src="./image/image/microwave5.jpg" class="productimg">
+            <p>Toshiba TFM435</p>
             </button>
         </form>
         </div>
     </div>
     </div>
+    <div style="height: 60px;"></div>
     </div>
-    
+    <div class="footer-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6 footeraboutus">
+                    <div class="footer-about-us">
+                        <h2>E<span>Pro</span></h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt 
+                            id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, 
+                            modi aliquid eveniet eligendi iure at?</p>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer-menu">
+                        <h2 class="footer-wid-title">Categories</h2>
+                        <ul>
+                            <li><p>Fan</p></li>
+                            <li><p>Air conditioner</p></li>
+                            <li><p>Light bulb</p></li>
+                            <li><p>Fridge</p></li>
+                            <li><p>Microwave</p></li>
+                        </ul>                        
+                    </div>
+                </div>
+                <div class="subscribebox">
+                    <div>
+                        <h2 class="subheader">Newsletter</h2>
+                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
+                        <div>
+                            <form action="./index.php">
+                                <input type="email" placeholder="Type your email">
+                                <input type="submit" value="Subscribe">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="copyright">
+                        <p>&copy; 2021 ePro. All Rights Reserved.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="footer-card-icon">
+                    <i class="fa fa-cc-discover"></i>
+                        <i class="fa fa-cc-mastercard"></i>
+                        <i class="fa fa-cc-paypal"></i>
+                        <i class="fa fa-cc-visa"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php
+ require "database.php";
+ if(isset($_GET['search']) == TRUE){
+redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
+}
 if(isset($_GET['fanid']))
 {
 redirect("http://localhost:83/fan.php?fanid=".$_GET['fanid']);
@@ -294,4 +414,6 @@ echo '<script>window.location="'.$url.'"</script>';
 }
 ?>
 </body>
+<script src="./js/sticky.js"></script>
+<script src="./js/bookmark.js"></script>  
 </html>

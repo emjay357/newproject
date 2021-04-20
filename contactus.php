@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>     
+    <title>Document</title>   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">  
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -12,32 +12,10 @@
     <link rel="stylesheet" href="./css/styleneed.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/product.css">
+    <link rel="stylesheet" href="./css/contact.css">
 </head>
-<body>  
-<?php
-    require "database.php";
-    if(isset($_GET['airconditionerid']) == TRUE){
-    $productid = $_GET['airconditionerid'];
-    $product = new product;   
-    $data = $product->productsearch($productid);
-    $productname = $data["productname"];
-    $productimg = $data["productimg"];
-    $para1 = $data["para1"];
-    $para2 = $data["para2"];
-    $para3 = $data["para3"];
-    $para4 = $data["para4"];
-    $para5 = $data["para5"];
-    $price = $data["price"];
-    $info = $data["infomation"];
-}
-if(isset($_GET['search']) == TRUE){
-    redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
-    }
-function redirect($url){
-        echo '<script>window.location="'.$url.'"</script>';
-    }
-?>
-   <div style="background-color: black;">
+<body>
+    <div style="background-color: black;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -51,13 +29,13 @@ function redirect($url){
                     <div class="row border">
                         <div class="search-box">
                             <div>
-                                <form id="form-search" role="form" method="GET" action="">
+                                <form id="form-search" role="form" method="GET" action="./index.php">
                                     <div>
                                         <div class="input-group ml-4" style="width: 100%">
-                                            <input type="text" name="search" id="search" class="form-control"
+                                            <input type="text" name="search" value="" id="search" class="form-control"
                                                    placeholder="search">
                                             <span class="input-group-btn">
-                                                <button id="btn-search" value="search" class="btn btn" style="background-color: rgb(254, 209, 1);">
+                                            <button id="btn-search" class="btn btn" style="background-color: rgb(254, 209, 1);">
                                                     <i class="fa fa-search"></i>
                                                 </button>
                                             </span>
@@ -71,58 +49,33 @@ function redirect($url){
         </div>
     </div>
     </div>
-    <div class="mainmenu-area">
+    <div id="navbar" class="mainmenu-area">
         <div class="container">
             <div class="row">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="taskbar" href="index.php">Home</a></li>
-                        <li><a class="taskbar" href="">Introduction</a></li>
-                        <li><a class="taskbar" href="#">Our Product</a></li>
-                        <li><a class="taskbar" href="#">Cart</a></li>
-                        <li><a class="taskbar" href="">Checkout</a></li>
-                        <li><a class="taskbar" href="#">Category</a></li>
-                        <li><a class="taskbar" href="#">Contact Us</a></li>
+                        <li><a class="taskbar" href="#Fan">Fan</a></li>
+                        <li><a class="taskbar" href="#Airconditioner">Air conditioner</a></li>
+                        <li><a class="taskbar" href="#Lightbulb">Light bulb</a></li>
+                        <li><a class="taskbar" href="#Fridge">Fridge</a></li>
+                        <li><a class="taskbar" href="#Microwave">Microwave</a></li>
+                        <li><a class="taskbar" href="contactus.php">Contact Us</a></li>
                     </ul>
                 </div>  
             </div>
         </div>
     </div>
-    <div class="carousel-inner overwirte" role="listbox" id="backgroundimgproduct" 
-    style="background-image: url(./image/backgroundproductimg.jpg) !important;">
-        <div>
-            <div class="single-slide">
-                <div class="slide-bg slide-one"></div>
-                <div class="slide-text-wrapper">
-                    <div class="slide-text">
-                        <div class="container">
-                            <div class="row">
-                                <div class="productdivinfo">
-                                <img src="<?php echo $productimg; ?>" class="productimginfo">
-                                    <p class="productnameinfo"><?php echo $productname; ?></p>
-                                    <p class="productpriceinfo"><?php echo $price; ?></p>
-                                </div>
-                                <div class="col-md-6 col-md-offset-6">
-                                <p class="productintro">Product introduction</p>
-                                    <p class="productintrotext"><?php echo $info; ?></p>
-                                    <div class="slide-content">
-                                        <div style="display: inline-block;" id="feature"><p>Basic product parameter</p>
-                                        <ul style="display: inline;">
-                                            <li id="parameter"><p>indoor size<span style="margin-left: 14px;">:<?php echo " ".$para1; ?></p></li>
-                                            <li id="parameter"><p>outdoor size:<?php echo " ".$para1; ?></p></li>
-                                            <li id="parameter"><p>Wattage<span style="margin-left: 43px;">:<?php echo " ".$para3; ?></span></p></li>
-                                            <li id="parameter"><p>Origin<span style="margin-left: 68.5px;">:<?php echo " ".$para4; ?></span></p></li>
-                                        </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+    <h2 id="contactheader">Contact us</h2>
     </div>
+<center>
+    <div style="height: 30px;"></div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2214.636270032881!2d105.80342783844381!3d21.01029159344284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad010dd3488b%3A0x160b2950306a9d7c!2sEpro%20group%2C%20ecoding%20building!5e0!3m2!1svi!2s!4v1618735988894!5m2!1svi!2s" 
+        width="1150" height="400" style="border: 0px" allowfullscreen="" loading="lazy">
+    </iframe>
+    </center>
+    <div style="height: 30px;"></div>
     <div class="footer-top-area">
         <div class="container">
             <div class="row">
