@@ -18,9 +18,8 @@
 <?php
  require "database.php";
  if(isset($_GET['search'])){
- $productname = $_GET['search'];
  $product = new product;   
- $data = $product->searchbox($productname);
+ $data = $product->searchbox($_GET['search']);
  $numberproduct = $data["numberofsearch"];
  $productsearcharr = $data["productsearcharr"];
  $noresult = "Result found";
@@ -83,19 +82,14 @@
             <div class="row">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="taskbar" href="index.php">Home</a></li>
-                        <li><a class="taskbar" href="">Introduction</a></li>
-                        <li><a class="taskbar" href="#">Our Product</a></li>
-                        <li><a class="taskbar" href="#">Cart</a></li>
-                        <li><a class="taskbar" href="">Checkout</a></li>
-                        <li><a class="taskbar" href="#">Category</a></li>
-                        <li><a class="taskbar" href="#">Contact Us</a></li>
+                        <li><a class="taskbar" href="./index.php">Home</a></li>
+                        <li><a class="taskbar" href="./contactus.php">Contact Us</a></li>
                     </ul>
                 </div>  
             </div>
         </div>
     </div>
-    <h3 style="margin: 0 auto; text-align:center; line-height: 121px; background-color:rgb(77, 77, 77); color:white;"><?php echo $noresult; ?></h3>
+    <h3 style="margin: 0 auto; text-align:center; line-height: 130px; background-color:rgb(77, 77, 77); color:white;"><?php echo $noresult; ?></h3>
     <form action="./productsearch.php" method="GET">
     <button type="submit" name="<?php echo $productsearcharr[0][4]; ?>" value="<?php echo $productsearcharr[0][3]; ?>" 
         class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[0]; ?>);">    
@@ -131,7 +125,7 @@
         class="productchoosebutton" style="background-image: url(<?php echo $buttonbg[5]; ?>);">    
         <img src="<?php echo $productsearcharr[5][1]; ?>" alt="" class="productimginfo imageproductbutton">
         <p class="productnamesearch"><?php echo $productsearcharr[5][0]; ?></p>
-        <p class="productpricesearch"><?php echo $productsearcharr[4][2]; ?></p>
+        <p class="productpricesearch"><?php echo $productsearcharr[5][2]; ?></p>
     </button><br>
     </form>
     <div class="footer-top-area">
@@ -166,9 +160,10 @@
                         <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
                         <div>
                             <form action="./index.php">
-                                <input type="email" placeholder="Type your email">
+                                <input type="email" name="subscribe" placeholder="Type your email">
                                 <input type="submit" value="Subscribe">
                             </form>
+                            <br>
                         </div>
                     </div>
                 </div>

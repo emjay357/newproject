@@ -16,10 +16,9 @@
 <body>  
 <?php
     require "database.php";
-    if(isset($_GET['airconditionerid']) == TRUE){
-    $productid = $_GET['airconditionerid'];
+    if(isset($_GET['airconditionerid'])){
     $product = new product;   
-    $data = $product->productsearch($productid);
+    $data = $product->productsearch($_GET['airconditionerid']);
     $productname = $data["productname"];
     $productimg = $data["productimg"];
     $para1 = $data["para1"];
@@ -30,9 +29,12 @@
     $price = $data["price"];
     $info = $data["infomation"];
 }
-if(isset($_GET['search']) == TRUE){
-    redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
+if(isset($_GET['search'])){
+    if($_GET['search']==""){}
+    else{
+redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
     }
+}
 function redirect($url){
         echo '<script>window.location="'.$url.'"</script>';
     }
@@ -76,13 +78,8 @@ function redirect($url){
             <div class="row">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="taskbar" href="index.php">Home</a></li>
-                        <li><a class="taskbar" href="">Introduction</a></li>
-                        <li><a class="taskbar" href="#">Our Product</a></li>
-                        <li><a class="taskbar" href="#">Cart</a></li>
-                        <li><a class="taskbar" href="">Checkout</a></li>
-                        <li><a class="taskbar" href="#">Category</a></li>
-                        <li><a class="taskbar" href="#">Contact Us</a></li>
+                        <li><a class="taskbar" href="./index.php">Home</a></li>
+                        <li><a class="taskbar" href="./contactus.php">Contact Us</a></li>
                     </ul>
                 </div>  
             </div>
@@ -158,6 +155,8 @@ function redirect($url){
                                 <input type="email" placeholder="Type your email">
                                 <input type="submit" value="Subscribe">
                             </form>
+                            <br>
+                            <p><?php echo " ".$welcome; ?></p>
                         </div>
                     </div>
                 </div>

@@ -8,42 +8,8 @@ class product {
     public function __construct(){
         $connectionString = "mysql:host=".SERVER_NAME;
         $this->connection = new PDO($connectionString, DB_USERNAME, DB_PASSWORD);
-        $this->createDatabaseAndTable();
-    }
-    public function createDatabaseAndTable(){
-        $sql = "CREATE DATABASE IF NOT EXISTS eproject";
+        $sql = "USE eproject;";
         $this->connection->exec($sql);
-        $sql = "USE eproject";
-        $this->connection->exec($sql);
-        $sql = "CREATE TABLE IF NOT EXISTS product(".
-                "PRODUCT_ID CHAR(5) NOT NULL UNIQUE,".
-                "PRODUCT_NAME VARCHAR(200),".
-                "PRODUCTIMG VARCHAR(100),".
-                "para1 VARCHAR(50),".
-                "para2 VARCHAR(50),".
-                "para3 VARCHAR(50),".
-                "para4 VARCHAR(50),".
-                "para5 VARCHAR(50),".
-                "price VARCHAR(50),".
-                "infomation VARCHAR(2000)".");";
-        $this->connection->exec($sql);
-    }
-    public function inputproduct($productid,$productname,$productimg,
-                                 $para1,$para2,$para3,$para4,$para5,$price,$info){
-        $sql = "INSERT INTO product(PRODUCT_ID ,PRODUCT_NAME ,PRODUCTIMG ,para1 ,para2 ,para3 ,para4 ,para5 ,price ,infomation) ".
-               "VALUES(:id ,:productname ,:img , :p1, :p2, :p3, :p4, :p5, :price, :info);";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam(':id', $productid);
-        $stmt->bindParam(':productname', $productname);
-        $stmt->bindParam(':img', $productimg);
-        $stmt->bindParam(':p1', $para1);
-        $stmt->bindParam(':p2', $para2);
-        $stmt->bindParam(':p3', $para3);
-        $stmt->bindParam(':p4', $para4);
-        $stmt->bindParam(':p5', $para5);
-        $stmt->bindParam(':price', $price);
-        $stmt->bindParam(':info', $info);
-        $stmt->execute();
     }
     public function productsearch($productid){
         $sql = "SELECT PRODUCT_NAME AS productn, PRODUCTIMG AS producti, para1 AS p1, 

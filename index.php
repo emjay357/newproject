@@ -15,9 +15,42 @@
     <link rel="stylesheet" href="./css/slider.css">
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" href="./image/webicon.png" type="image/png">
 </head>
 <body>
-<div style="background-color: black;">
+<?php
+ require "database.php";
+ if(isset($_GET['search'])){
+     if($_GET['search']==""){}
+     else{
+redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
+     }
+}
+if(isset($_GET['fanid']))
+{
+redirect("http://localhost:83/fan.php?fanid=".$_GET['fanid']);
+}
+if(isset($_GET['airconditionerid']))
+{
+redirect("http://localhost:83/airconditioner.php?airconditionerid=".$_GET['airconditionerid']);
+}
+if(isset($_GET['fridgeid']))
+{
+redirect("http://localhost:83/fridge.php?fridgeid=".$_GET['fridgeid']);
+}
+if(isset($_GET['lightbulbid']))
+{
+redirect("http://localhost:83/lightbulb.php?lightbulbid=".$_GET['lightbulbid']);
+}
+if(isset($_GET['microwaveid']))
+{
+redirect("http://localhost:83/microwave.php?microwaveid=".$_GET['microwaveid']);
+}
+function redirect($url){
+echo '<script>window.location="'.$url.'"</script>';
+}
+?>
+<div id="Home" style="background-color: black;">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
@@ -48,6 +81,9 @@
                         </div>  
                     </div>
                 </div>
+                <div class="buttonleaddiv">
+                    <a class="buttonlead" href="#download">Want to download our product information?</a>
+                </div>
         </div>
     </div>
     </div>
@@ -56,13 +92,19 @@
             <div class="row">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="taskbar" href="index.php">Home</a></li>
+                        <!-- //////////////////////////////////////////////////////////////////////////////////////
+                    ///////////////////////////////////////////////////////////////////////////////////////////////-->
+                        <li><a class="taskbar" href="./shoppage.php">Shop me</a></li>
+                        <!-- //////////////////////////////////////////////////////////////////////////////////////
+                    ///////////////////////////////////////////////////////////////////////////////////////////////-->
+                        <li><a class="taskbar" href="#Home">Home</a></li>
                         <li><a class="taskbar" href="#Fan">Fan</a></li>
                         <li><a class="taskbar" href="#Airconditioner">Air conditioner</a></li>
                         <li><a class="taskbar" href="#Lightbulb">Light bulb</a></li>
                         <li><a class="taskbar" href="#Fridge">Fridge</a></li>
                         <li><a class="taskbar" href="#Microwave">Microwave</a></li>
                         <li><a class="taskbar" href="contactus.php">Contact Us</a></li>
+                        <li><a class="taskbar" href="aboutus.php">About Us</a></li>
                     </ul>
                 </div>  
             </div>
@@ -146,13 +188,13 @@
 
         </div>        
     </div>
-    <div class="productsection divfix">
-    <p class="tittle" style="color: black; ">TOP SELLING</p>
+    <div class="productsectiontop divfixtop">
+    <p class="tittletop" style="color: black; ">TOP SELLING</p>
     <center>
     <img src="./image/image/khung.jpg">
     </center>
     <center>
-    <div class="productdiv">
+    <div class="productdivtop">
         <div>
         <form action="./index.php" method="GET">
             <button type="submit" name="fridgeid" value="e1" class="productname productnamefirst">
@@ -161,19 +203,19 @@
             </button>
             <button type="submit" name="airconditionerid" value="b1" class="productname">
             <img src="./image/image/topselling2.jpg" class="productimg">
-            <p>LG COOL™ Inverter</p>
+            <p>LG COOL Inverter</p>
             </button>
             <button type="submit" name="microwaveid" value="d1" class="productname">
             <img src="./image/image/topselling3.jpg" class="productimg">
-            <p>T240WHT Microwave</p>
+            <p>T240 Microwave</p>
             </button>
             <button type="submit" name="microwaveid" value="d2" class="productname">
             <img src="./image/image/topselling4.jpg" class="productimg">
-            <p>Panasonic Countertop</p>
+            <p>Panasonic Counter</p>
             </button>
             <button type="submit" name="fanid" value="a1" class="productname">
             <img src="./image/image/topselling5.jpg" class="productimg">
-            <p>Toshiba Inverter RAS-H</p>
+            <p>Toshiba Inverter</p>
             </button>
         </form>
         </div>
@@ -186,7 +228,7 @@
         <form action="./index.php" method="GET">
             <button type="submit" name="fanid" value="a1" class="productname productnamefirst">
             <img src="./image/image/topselling5.jpg" class="productimg">
-            <p>Toshiba Inverter RAS-H</p>
+            <p>Toshiba Inverter</p>
             </button>
             <button type="submit" name="fanid" value="a2" class="productname">
             <img src="./image/image/fan2.jpg" class="productimg">
@@ -215,7 +257,7 @@
         <form action="./index.php" method="GET">
             <button type="submit" name="airconditionerid" value="b1" class="productname productnamefirst">
             <img src="./image/image/topselling2.jpg" class="productimg">
-            <p>LG COOL™ Inverter</p>
+            <p>LG COOL Inverter</p>
             </button>
             <button type="submit" name="airconditionerid" value="b2" class="productname">
             <img src="./image/image/air-conditioner.jpg" class="productimg">
@@ -302,11 +344,11 @@
         <form action="./index.php" method="GET">
             <button type="submit" name="microwaveid" value="d1" class="productname productnamefirst">
             <img src="./image/image/topselling4.jpg" class="productimg">
-            <p>Panasonic Countertop</p>
+            <p>Panasonic Counter</p>
             </button>
             <button type="submit" name="microwaveid" value="d2" class="productname">
             <img src="./image/image/topselling3.jpg" class="productimg">
-            <p>T240WHT Microwave</p>
+            <p>T240 Microwave</p>
             </button>
             <button type="submit" name="microwaveid" value="d3" class="productname">
             <img src="./image/image/microwave3.jpg" class="productimg">
@@ -327,7 +369,7 @@
     <div style="height: 60px;"></div>
     </div>
     </center>
-    <div class="footer-top-area">
+    <div id="download" class="footer-top-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6 footeraboutus">
@@ -353,15 +395,21 @@
                         </ul>                        
                     </div>
                 </div>
-                <div class="subscribebox">
+                <div>
+                <h2 class="downloadhere">Download here:</h2>
+                <div class="divword"><a class="downloadword" href="./eproject.docx" download>Word file</a></div>
+                <div class="divpdf"><a class="downloadpdf" href="./eproject.pdf" download>PDF file</a></div>
+                </div>
+                <div class="subscribebox" style="margin-top: -167px;;">
                     <div>
                         <h2 class="subheader">Newsletter</h2>
                         <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
                         <div>
                             <form action="./index.php">
-                                <input type="email" placeholder="Type your email">
+                                <input type="email" name="subscribe" placeholder="Type your email">
                                 <input type="submit" value="Subscribe">
                             </form>
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -388,36 +436,7 @@
             </div>
         </div>
     </div>
-<?php
- require "database.php";
- if(isset($_GET['search']) == TRUE){
-redirect("http://localhost:83/productsearch.php?search=".$_GET['search']);
-}
-if(isset($_GET['fanid']))
-{
-redirect("http://localhost:83/fan.php?fanid=".$_GET['fanid']);
-}
-if(isset($_GET['airconditionerid']))
-{
-redirect("http://localhost:83/airconditioner.php?airconditionerid=".$_GET['airconditionerid']);
-}
-if(isset($_GET['fridgeid']))
-{
-redirect("http://localhost:83/fridge.php?fridgeid=".$_GET['fridgeid']);
-}
-if(isset($_GET['lightbulbid']))
-{
-redirect("http://localhost:83/lightbulb.php?lightbulbid=".$_GET['lightbulbid']);
-}
-if(isset($_GET['microwaveid']))
-{
-redirect("http://localhost:83/microwave.php?microwaveid=".$_GET['microwaveid']);
-}
-function redirect($url){
-echo '<script>window.location="'.$url.'"</script>';
-}
-?>
 </body>
-<script src="./js/sticky.js"></script>
-<script src="./js/bookmark.js"></script>  
+<script src="./js1/sticky.js"></script>
+<script src="./js1/bookmark.js"></script>  
 </html>
