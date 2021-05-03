@@ -24,7 +24,7 @@
   </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input type="submit" name="them" value="Thêm">
+      <input type="submit" name="them" value="Add" style="cursor:pointer;">
     </div></td>
   </tr>
 </table>

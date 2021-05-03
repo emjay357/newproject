@@ -19,8 +19,8 @@
         </ul>
        
     </div>
- <form action="shoppage.php?quanly=timkiem&ac=sp" method="post" enctype="multipart/form-data">
-     <p><input type="text" name="masp" placeholder="Nhập mã sản phẩm..." id="timkiem" required="required" />
-        <input type="submit" id="button_timkiem" name="timkiem" value="Tìm sản phẩm" />
+ <form action="shoppage.php?quanly=search&ac=sp" method="post" enctype="multipart/form-data">
+     <p><input type="text" name="name" placeholder="Enter product name" id="timkiem" required="required" />
+        <input type="submit" id="button_timkiem" name="search" value="Search" />
         </p>
         </form>

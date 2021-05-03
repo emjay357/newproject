@@ -15,9 +15,8 @@
 
 ?>
 <div class="button_themsp">
-<a href="shoppage.php?quanly=sanpham&ac=them">Thêm Mới</a> 
+<a href="shoppage.php?quanly=sanpham&ac=them">Add product</a> 
 </div>
-
 <table width="100%" border="1">
   <tr>
     <td>ID</td>
@@ -38,12 +37,9 @@
   	
     <td><?php  echo $dong['productid'];?></td>
     <td><?php echo $dong['productname'] ?></td>
-    <td><img src="<?php echo $dong['image'] ?>" width="80" height="80" />
+    <td><img src="../<?php echo $dong['image'] ?>" width="80" height="80" />
     <?php
-    echo $dong['image'];
-    ?>
-    <a href="shoppage.php?quanly=gallery&ac=lietke&id=<?php echo $dong['productid'] ?>" style="text-align:center;text-decoration:none; font-size:18px;color:#06F;">Gallery</a>
-    </td>
+    ?></td>
     <td><?php echo number_format($dong['price']) ?></td>
     <td><?php echo $dong['amount'] ?></td>
     <td><?php echo $dong['tenloaisp'] ?></td>

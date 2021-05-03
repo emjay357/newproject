@@ -5,7 +5,7 @@
 	$dong=mysqli_fetch_array($row);
  ?>
 <div class="button_themsp">
-<a href="shoppage.php?quanly=sanpham&ac=lietke">Liệt kê sp</a> 
+<a href="shoppage.php?quanly=sanpham&ac=lietke">Product list</a> 
 </div>
 <form action="modules/quanlysanpham/xuly.php?id=<?php echo $dong['productid'] ?>" method="post" enctype="multipart/form-data">
 <h3>&nbsp;</h3>
@@ -83,7 +83,7 @@
   </tr>
   <tr>
     <td colspan="2"><div align="center">
-      <input type="submit" name="sua" value="Sửa sản phẩm" style = "cursor: pointer;">
+      <input type="submit" name="sua" value="Fix" style = "cursor: pointer;">
     </div></td>
   </tr>
 </table>

@@ -94,7 +94,7 @@
 					while($dong_hinhanhsp=mysqli_fetch_array($sql_hinhanhsp)){
 						
 				?>
-                        	<p style="text-align:center;"><img src="<?php echo $dong_hinhanhsp['image'] ?>" width="600" height="600" /></p>
+                        	<p style="text-align:center;"><img src="<?php echo $dong_hinhanhsp['image'] ?>" width="200"/></p>
                         <?php
 					}
 					}else{

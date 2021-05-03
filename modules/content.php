@@ -13,20 +13,20 @@
 					$tam ='';
 				}if($tam == 'chitietsp'){
 					include('modules/right/chitietsp.php');
-				}elseif($tam == 'loaisp'){
+				}else if($tam == 'loaisp'){
 					include('modules/right/loaisp.php');
-				}elseif($tam == 'dathang'){
+				}else if($tam == 'dathang'){
 					include('modules/right/dathang.php');
-				}elseif($tam == 'dangkymoi'){
+				}else if($tam == 'dangkymoi'){
 					include('modules/right/dangkymoi.php');
-				}elseif($tam == 'dangnhap'){
+				}else if($tam == 'dangnhap'){
 					include('modules/right/dangnhap.php');
-				}elseif($tam == 'xulygiohang'){
+				}else if($tam == 'xulygiohang'){
 					include('modules/right/xulygiohang.php');
-				}elseif($tam == 'camon'){
+				}else if($tam == 'camon'){
 					include('modules/right/camon.php');
-				
-				
+				}else if($tam == 'hieusp'){
+					include('modules/right/hieusp.php');
 				}else{
 					include('modules/right/spmoi.php');
 				}

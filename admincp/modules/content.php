@@ -42,7 +42,7 @@
 					}elseif(($tam == 'tintuc')&&($tam1 == 'sua')){
 						
 						include('modules/quanlytintuc/sua.php');
-					}elseif(($tam == 'timkiem')&&($tam1 == 'sp')){
+					}elseif(($tam == 'search')&&($tam1 == 'sp')){
 						
 						include('modules/timkiem/timkiem.php');
 					}elseif(($tam == 'gallery')&&($tam1 == 'them')){
