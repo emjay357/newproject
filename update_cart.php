@@ -75,11 +75,11 @@
 	if(isset($_POST['add_to_cart'])){
 		$id=$_GET['id'];
 		$soluong=$_POST['soluong'];
-		$sql="select * from sanpham where idsanpham='$id' limit 1";
+		$sql="select * from product_admin where productid='$id' limit 1";
 		$row=mysqli_query($conn, $sql);
 		$dong=mysqli_fetch_array($row);
 		if($dong){
-			$new_product=array(array('tensp'=>$dong['tensp'],'id'=>$id,'soluong'=>$soluong,'gia'=>$dong['giadexuat']));
+			$new_product=array(array('tensp'=>$dong['productname'],'id'=>$id,'soluong'=>$soluong,'gia'=>$dong['price']));
 			if(isset($_SESSION['product'])){
 				$found=false;
 				foreach($_SESSION['product'] as $cart_item){

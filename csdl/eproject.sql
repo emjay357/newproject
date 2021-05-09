@@ -98,35 +98,17 @@ INSERT INTO `admin` (`idadmin`, `username`, `password`) VALUES
 --
 
 CREATE TABLE `cart` (
-  `id` int(11) NOT NULL,
-  `fullname` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `createdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `id` int(10) NOT NULL,
+  `createdate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `customer_id` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`id`, `fullname`, `createdate`) VALUES
-(1, 'David', '2021-04-28 16:49:42'),
-(2, 'David1', '2021-04-28 16:51:15'),
-(3, 'David2', '2021-04-28 16:53:53'),
-(4, 'David3', '2021-04-28 16:54:34'),
-(5, 'David4', '2021-04-29 02:12:53'),
-(6, 'David5', '2021-04-01 06:58:25'),
-(7, 'David6', '2021-04-01 10:16:28'),
-(8, 'David7', '2021-04-01 10:17:28'),
-(9, 'David8', '2021-04-01 11:15:23'),
-(10, 'David9', '2021-04-01 11:42:20'),
-(11, 'David10', '2021-04-01 11:45:21'),
-(12, 'David11', '2021-04-03 14:20:16'),
-(13, 'David12', '2021-04-04 02:53:38'),
-(14, 'David13', '2021-04-05 14:32:04'),
-(15, 'David14', '2021-04-05 14:44:28'),
-(16, 'David15', '2021-04-05 14:49:02'),
-(17, 'David16', '2021-04-05 14:55:56'),
-(18, 'David17', '2021-04-05 14:56:35'),
-(19, 'David18', '2021-04-24 06:18:44');
+INSERT INTO `cart` (`id`, `customer_id`, `createdate`) VALUES
+('1', 'A45gjf', '2021-04-28 16:49:42');
 
 -- --------------------------------------------------------
 
@@ -138,68 +120,38 @@ CREATE TABLE `cart_detail` (
   `id` int(11) NOT NULL,
   `cart_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL DEFAULT '1',
-  `quantity` int(11) NOT NULL,
-  `price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
+  `order_amount` int(11) NOT NULL,
+  `total_product_price` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cart_detail`
 --
 
-INSERT INTO `cart_detail` (`id`, `cart_id`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 62, 0, '13'),
-(2, 2, 60, 1, '50'),
-(3, 2, 61, 1, '50'),
-(4, 3, 45, 5, '60'),
-(5, 4, 39, 1, '50'),
-(6, 5, 62, 1, '50'),
-(7, 6, 38, 1, '50'),
-(8, 6, 39, 1, '50'),
-(9, 6, 45, 1, '60'),
-(10, 7, 40, 1, '50'),
-(11, 7, 48, 1, '60'),
-(12, 8, 48, 1, '60,000'),
-(13, 9, 84, 7, '199000'),
-(14, 10, 81, 5, '1290000'),
-(15, 10, 79, 3, '1990000'),
-(16, 10, 65, 1, '199'),
-(17, 11, 83, 3, '199000'),
-(18, 12, 86, 1, '27000000'),
-(19, 12, 67, 8, '249900'),
-(20, 12, 85, 1, '12000000'),
-(21, 12, 72, 1, '40000'),
-(22, 13, 86, 3, '27000000'),
-(23, 13, 84, 1, '199000'),
-(24, 14, 85, 1, '12000000'),
-(25, 14, 84, 1, '199000'),
-(26, 15, 88, 2, '22000000'),
-(27, 16, 86, 3, '27000000'),
-(28, 17, 88, 1, '22000000'),
-(29, 18, 86, 1, '27000000'),
-(30, 19, 85, 1, '12000000'),
-(31, 19, 86, 2, '27000000');
+INSERT INTO `cart_detail` (`id`, `cart_id`, `product_id`, `order_amount`, `total_product_price`) VALUES
+(1, 1, 1, 0, '0');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dangky`
+-- Table structure for table `register`
 --
 
-CREATE TABLE `dangky` (
-  `id_khachhang` int(11) NOT NULL,
-  `tenkhachhang` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+CREATE TABLE `register` (
+  `customer_id` varchar(50) NOT NULL,
+  `customer_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE,
-  `matkhau` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `dienthoai` int(11) NOT NULL UNIQUE,
-  `diachinhan` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
+  `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `phone_number` int(20) NOT NULL UNIQUE,
+  `address` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `dangky`
+-- Dumping data for table `register`
 --
 
-INSERT INTO `dangky` (`id_khachhang`, `tenkhachhang`, `email`, `matkhau`, `dienthoai`, `diachinhan`) VALUES
-(33, 'David1', 'admin@gmail.com', '123', 3, '3');
+INSERT INTO `register` (`customer_id`, `customer_name`, `email`, `password`, `phone_number`, `address`) VALUES
+('A45gjf', 'David', 'admin@gmail.com', '123', 3, '3');
 
 -- --------------------------------------------------------
 
@@ -272,20 +224,20 @@ INSERT INTO `gallery` (`id_gallery`, `id_sp`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hieusp`
+-- Table structure for table `producer`
 --
 
-CREATE TABLE `hieusp` (
-  `idhieusp` int(11) NOT NULL,
-  `tenhieusp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE,
-  `tinhtrang` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
+CREATE TABLE `producer` (
+  `producer_id` int(11) NOT NULL,
+  `producer_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE,
+  `status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hieusp`
+-- Dumping data for table `producer`
 --
 
-INSERT INTO `hieusp` (`idhieusp`, `tenhieusp`, `tinhtrang`) VALUES
+INSERT INTO `producer` (`producer_id`, `producer_name`, `status`) VALUES
 (1, 'Toshiba', '1'),
 (2, 'LG', '1'),
 (3, 'Senko', '1'),
@@ -298,21 +250,21 @@ INSERT INTO `hieusp` (`idhieusp`, `tenhieusp`, `tinhtrang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `loaisp`
+-- Table structure for table `producttype`
 --
 
-CREATE TABLE `loaisp` (
-  `idloaisp` int(11) NOT NULL,
-  `tenloaisp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE,
-  `tinhtrang` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `loaisp` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE
+CREATE TABLE `producttype` (
+  `product_type_id` int(11) NOT NULL,
+  `type_name` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE,
+  `status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `type` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `loaisp`
+-- Dumping data for table `producttype`
 --
 
-INSERT INTO `loaisp` (`idloaisp`, `loaisp`, `tenloaisp`, `tinhtrang`) VALUES
+INSERT INTO `producttype` (`product_type_id`, `type`, `type_name`, `status`) VALUES
 (1,'a', 'Fan', '1'),
 (2,'b', 'Air conditioner', '1'),
 (3,'e', 'Fridge', '1'),
@@ -322,15 +274,15 @@ INSERT INTO `loaisp` (`idloaisp`, `loaisp`, `tenloaisp`, `tinhtrang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sanpham`
+-- Table structure for table `product_admin`
 --
 
-CREATE TABLE `sanpham` (
+CREATE TABLE `product_admin` (
   `productid` int(11) NOT NULL,
   `productname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL UNIQUE,
   `productorder` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `price` float NOT NULL,
+  `price` float(50) NOT NULL,
   `amount` int(11) NOT NULL,
   `producttype` varchar(10) NOT NULL,
   `producer` int(11) NOT NULL,
@@ -338,10 +290,10 @@ CREATE TABLE `sanpham` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `sanpham`
+-- Dumping data for table `product_admin`
 --
 
-INSERT INTO `sanpham` (`productid`, `productname`, `productorder`, `image`, `price`, `amount`, `producttype`, `producer`, `status`) VALUES
+INSERT INTO `product_admin` (`productid`, `productname`, `productorder`, `image`, `price`, `amount`, `producttype`, `producer`, `status`) VALUES
 (5, 'Toshiba Inverter RAS-H', '1', './image/image/topselling5.jpg', 399000, 11, 'a', 1, '1'),
 (6, 'SenKo BXK45', '2', './image/image/fan2.jpg', 453000, 11, 'a', 3, '1'),
 (7, 'SenKo BX1212', '3', './image/image/shopping.jpg', 457000, 11, 'a', 3, '1'),
@@ -371,26 +323,25 @@ INSERT INTO `sanpham` (`productid`, `productname`, `productorder`, `image`, `pri
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tintuc`
+-- Table structure for table `news`
 --
 
-CREATE TABLE `tintuc` (
-  `idtintuc` int(11) NOT NULL,
-  `tentintuc` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `matin` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `hinhanh` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `noidung` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `tinhtrang` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
+CREATE TABLE `news` (
+  `news_id` int(11) NOT NULL,
+  `news_title` tinytext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `news_image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tintuc`
+-- Dumping data for table `news`
 --
 
-INSERT INTO `tintuc` (`idtintuc`, `tentintuc`, `matin`, `hinhanh`, `noidung`, `tinhtrang`) VALUES
-(2, 'New Product', 't2', 'Jet.jpg', 'A', '1'),
-(4, 'Issue Prodcut', 'h7', 'image001.png', 'B', '1'),
-(5, 'Problem in finding product u are lookn for', 'y6', 'image001_11.jpg', 'C', '1');
+INSERT INTO `news` (`news_id`, `news_title`, `news_image`, `content`, `status`) VALUES
+(1, 'New Product', 'Jet.jpg', 'A', '1'),
+(2, 'Issue Prodcut', 'image001.png', 'B', '1'),
+(3, 'Problem in finding product u are lookn for', 'image001_11.jpg', 'C', '1');
 
 --
 -- Indexes for dumped tables
@@ -415,10 +366,10 @@ ALTER TABLE `cart_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `dangky`
+-- Indexes for table `register`
 --
-ALTER TABLE `dangky`
-  ADD PRIMARY KEY (`id_khachhang`);
+ALTER TABLE `register`
+  ADD PRIMARY KEY (`customer_id`);
 
 --
 -- Indexes for table `gallery`
@@ -427,28 +378,28 @@ ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id_gallery`);
 
 --
--- Indexes for table `hieusp`
+-- Indexes for table `producer`
 --
-ALTER TABLE `hieusp`
-  ADD PRIMARY KEY (`idhieusp`);
+ALTER TABLE `producer`
+  ADD PRIMARY KEY (`producer_id`);
 
 --
--- Indexes for table `loaisp`
+-- Indexes for table `producttype`
 --
-ALTER TABLE `loaisp`
-  ADD PRIMARY KEY (`idloaisp`);
+ALTER TABLE `producttype`
+  ADD PRIMARY KEY (`product_type_id`);
 
 --
--- Indexes for table `sanpham`
+-- Indexes for table `product_admin`
 --
-ALTER TABLE `sanpham`
+ALTER TABLE `product_admin`
   ADD PRIMARY KEY (`productid`);
 
 --
--- Indexes for table `tintuc`
+-- Indexes for table `news`
 --
-ALTER TABLE `tintuc`
-  ADD PRIMARY KEY (`idtintuc`);
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`news_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -464,19 +415,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) NOT NULL UNIQUE AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `cart_detail`
 --
 ALTER TABLE `cart_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT for table `dangky`
---
-ALTER TABLE `dangky`
-  MODIFY `id_khachhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL UNIQUE AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `gallery`
@@ -485,22 +430,22 @@ ALTER TABLE `gallery`
   MODIFY `id_gallery` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
--- AUTO_INCREMENT for table `hieusp`
+-- AUTO_INCREMENT for table `producer`
 --
-ALTER TABLE `hieusp`
-  MODIFY `idhieusp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+ALTER TABLE `producer`
+  MODIFY `producer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `loaisp`
+-- AUTO_INCREMENT for table `producttype`
 --
-ALTER TABLE `loaisp`
-  MODIFY `idloaisp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+ALTER TABLE `producttype`
+  MODIFY `product_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `tintuc`
+-- AUTO_INCREMENT for table `news`
 --
-ALTER TABLE `tintuc`
-  MODIFY `idtintuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `news`
+  MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

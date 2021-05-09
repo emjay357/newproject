@@ -1,9 +1,8 @@
 <?php
 	@session_start();
 	include('admincp/modules/config.php');
-
-		$name=$_SESSION['dangnhap'];	
-		$insert_cart="insert into cart (fullname) value ('".$name."')";
+		$cus_id=$_SESSION['customer_id'];	
+		$insert_cart="insert into cart (customer_id) value ('".$cus_id."')";
 		$ketqua=mysqli_query($conn, $insert_cart);
 		if($ketqua){
 			for($i=0;$i<count($_SESSION['product']);$i++){
@@ -12,11 +11,12 @@
 			
 			$cart_id=$row[0];
 			$product_id=$_SESSION['product'][$i]['id'];
+			var_dump($product_id);
 			$quantity=$_SESSION['product'][$i]['soluong'];
-			
+			var_dump($quantity);
 			$price=$_SESSION['product'][$i]['gia'];
-			
-			 $insert_cart_detail="insert into cart_detail (cart_id,product_id,quantity,price) values('".$cart_id."','".$product_id."','".$quantity."','".$price."');";
+			var_dump($price);
+			 $insert_cart_detail="insert into cart_detail (cart_id,product_id,order_amount,total_product_price) values('".$cart_id."','".$product_id."','".$quantity."','".$price."');";
 			 $cart_detail=mysqli_query($conn, $insert_cart_detail);
 
 		}

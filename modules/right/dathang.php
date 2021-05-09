@@ -10,27 +10,27 @@
 			echo '  <table width="100%" border="1" style="border-collapse:collapse; margin:5px; text-align:center;">';
 			
 			echo'  <tr>';
-			echo'<td>MÃ SP</td>';
-			echo'<td>Tên SP</td>';
-			echo'<td>Hình ảnh</td>';
-			echo'<td>Giá sp</td>';
-			echo'<td>SL</td>';
-			echo'<td>Tổng tiền</td>';
-			echo'<td>Quản lý</td>';
+			echo'<td>Product name</td>';
+			echo'<td>Image</td>';
+			echo'<td>Price</td>';
+			echo'<td>Amount</td>';
+			echo'<td>Total price</td>';
+			echo'<td>Cancel</td>';
 			echo'</tr>';
 	$thanhtien=0;
 	foreach($_SESSION['product'] as $cart_item){
 			$id=$cart_item['id'];
-			$sql="select * from sanpham where idsanpham='$id'";
+			$sql="select * from product_admin where productid='$id'";
 			$row=mysqli_query($conn, $sql);
 			$dong=mysqli_fetch_array($row);
 		 	echo'<tr>';
-			echo'<td>'.$dong['masp'].'</td>';
-			echo'<td>'.$dong['tensp'].'</td>';
-			echo'<td><img src="admincp/modules/quanlysanpham/uploads/'.$dong['hinhanh'].'" width="100" height="100" /></td>';
-			echo'<td>'.number_format($dong['giadexuat']).'</td>';
+			echo'<td>'.$dong['productname'].'</td>';
+			echo'<td><img src="'.$dong['image'].'" width="100" height="100" /></td>';
+			echo'<td>'.number_format($dong['price']).'</td>';
 			
-			echo'<td><a href="update_cart.php?cong='.$cart_item['id'].'" style="margin-right:2px;"><img src="imgs/plus.png" width="20" height="20"></a>'.$cart_item['soluong'].'<a href="update_cart.php?tru='.$cart_item['id'].'" style="margin-left:2px;"><img src="imgs/subtract.png" width="20" height="20"></a></td>';
+			echo'<td><a href="update_cart.php?cong='.$cart_item['id'].'" style="margin-right:2px;"><img src="imgs/plus.png" 
+			width="20" height="20"></a>'.$cart_item['soluong'].'<a href="update_cart.php?tru='.$cart_item['id'].'" 
+			style="margin-left:2px;"><img src="imgs/subtract.png" width="20" height="20"></a></td>';
 			$tongtien=0;
 			$tongtien=$cart_item['soluong']*$cart_item['gia'];
 			$thanhtien=($thanhtien + $tongtien);
@@ -67,7 +67,7 @@
  
 
             <ul	class="control">
-              <p><a href="">Tiếp tục mua hàng</a></p>
+              <p><a href="shoppage.php">Tiếp tục mua hàng</a></p>
                 <p><a href="?quanly=dangkymoi">Đăng ký mới</a></p>
                 <p><a href="?quanly=dangnhap">Bạn đã có tài khoản</a></p>
                 <?php

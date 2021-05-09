@@ -1,5 +1,5 @@
 <?php
-	$sql_loai="select * from loaisp order by idloaisp asc";
+	$sql_loai="select * from producttype order by product_type_id asc";
 	$row_loai=mysqli_query($conn, $sql_loai);
 ?>
 <div class="box_list">
@@ -10,14 +10,14 @@
                 <?php
 				while($dong_loai=mysqli_fetch_array($row_loai)){
 				?>
-                	<li><a href="shoppage.php?quanly=loaisp&id=<?php echo $dong_loai['loaisp'] ?>"><?php echo $dong_loai['tenloaisp'] ?></a></li>
+                	<li><a href="shoppage.php?quanly=loaisp&id=<?php echo $dong_loai['type'] ?>"><?php echo $dong_loai['type_name'] ?></a></li>
                   <?php
 				}
 				  ?>
                 </ul>
                 </div><!--Ket thuc div box loai mat hang -->
                <?php
-	$sql_hieu="select * from hieusp order by idhieusp asc";
+	$sql_hieu="select * from producer order by producer_id asc";
 	$row_hieu=mysqli_query($conn, $sql_hieu);
 ?>
                 <div class="box_list">
@@ -28,7 +28,7 @@
                 <?php
 				while($dong_hieu=mysqli_fetch_array($row_hieu)){
 				?>
-                	<li><a href="shoppage.php?quanly=hieusp&id=<?php echo $dong_hieu['idhieusp'] ?>"><?php echo $dong_hieu['tenhieusp'] ?></a></li>
+                	<li><a href="shoppage.php?quanly=hieusp&id=<?php echo $dong_hieu['producer_id'] ?>"><?php echo $dong_hieu['producer_name'] ?></a></li>
                   <?php
 				}
 				  ?>
@@ -40,7 +40,7 @@
             	<p>Top selling</p>
             		</div>
                     <?php
-					$sql_topselling=mysqli_query($conn, "select * from sanpham order by productid asc limit 5");
+					$sql_topselling=mysqli_query($conn, "select * from product_admin order by productid asc limit 5");
 					?>
             	<ul class="hangbanchay">	
                 <?php
@@ -58,7 +58,7 @@
                 </div><!--Ket thuc div box hang ban chay -->
                  <div class="box_list">
                  <?php
-				 	$sql=mysqli_query($conn, "select * from tintuc");
+				 	$sql=mysqli_query($conn, "select * from news");
 					
 				 ?>
                    <div class="tieude">
@@ -69,8 +69,8 @@
 				while($dong_tin=mysqli_fetch_array($sql)){
 				?>
                 	<li><a href="#">
-                    	<p style="float:left;"><img src="admincp/modules/quanlytintuc/uploads/<?php echo $dong_tin['hinhanh'] ?>" width="40" height="30" /></p>
-                        <p style="overflow:hidden;padding-left:5px;"><?php echo $dong_tin['tentintuc'] ?></p>
+                    	<p style="float:left;"><img src="admincp/modules/quanlytintuc/uploads/<?php echo $dong_tin['news_image'] ?>" width="40" height="30" /></p>
+                        <p style="overflow:hidden;padding-left:5px;"><?php echo $dong_tin['news_title'] ?></p>
                     </a></li>
                     <?php
 				}

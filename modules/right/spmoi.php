@@ -1,5 +1,5 @@
 	<?php
-	$sql_moinhat="select * from sanpham order by productid desc limit 0,6";
+	$sql_moinhat="select * from product_admin order by productid desc limit 0,6";
 	$row_moinhat=mysqli_query($conn, $sql_moinhat);
 	
 ?>
@@ -22,12 +22,12 @@
                  <div class="clear"></div>
                  
  <?php
- 	$sql_loai=mysqli_query($conn, "select * from loaisp ");
+ 	$sql_loai=mysqli_query($conn, "select * from producttype ");
 	
 	while($dong_loai=mysqli_fetch_array($sql_loai)){
 		
-	echo '<div class="tieude">'.$dong_loai['tenloaisp'].'</div>';
- 	$sql_loaisp="select * from loaisp inner join sanpham on sanpham.producttype=loaisp.loaisp where sanpham.producttype='".$dong_loai['loaisp']."'";
+	echo '<div class="tieude">'.$dong_loai['type_name'].'</div>';
+ 	$sql_loaisp="select * from producttype inner join product_admin on product_admin.producttype=producttype.type where product_admin.producttype='".$dong_loai['type']."'";
 	$row=mysqli_query($conn, $sql_loaisp);
 	$count=mysqli_num_rows($row);
 	if($count>0){

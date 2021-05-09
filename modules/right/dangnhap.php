@@ -3,14 +3,16 @@
 	if(isset($_POST['dangnhap'])){
 		$email=$_POST['email'];
 		$pass=$_POST['pass'];
-		$sql=mysqli_query($conn, "select * from dangky where email='$email' and matkhau='$pass' limit 1");
+		$sql=mysqli_query($conn, "select * from register where email='$email' and password='$pass' limit 1");
 		$count=mysqli_num_rows($sql);
+		$customerid=mysqli_fetch_array($sql);
 		if($count>0){
 			$tendangnhap=$_SESSION['dangnhap']=$email;
-			echo '<p style="text-align:center;width:auto;padding:30px;background:red;color:#fff;font-size:20px;">Bạn đã đăng nhập thành công.</p>';
+			$_SESSION['customer_id']=$customerid['customer_id'];
+			echo '<p style="text-align:center;width:auto;padding:30px;background:red;color:#fff;font-size:20px;">Login success.</p>';
 			echo '<a href="shoppage.php?quanly=dathang" style="font-size:20px;">Quay lại để thanh toán</a>';
 		}else{
-			echo '<p style="text-align:center;width:auto;padding:30px;background:red;color:#fff;font-size:20px;">Email và Tài khoản bị sai</p>';
+			echo '<p style="text-align:center;width:auto;padding:30px;background:red;color:#fff;font-size:20px;">Wrong email or password</p>';
 		}
 	}
 ?>

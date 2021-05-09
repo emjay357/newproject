@@ -1,14 +1,22 @@
 <?php
 	if(isset($_POST['gui'])){
-		$tenkh=$_POST['hoten'];
+		$ctname=$_POST['hoten'];
 		$email=$_POST['email'];
-		$diachi=$_POST['diachi'];
+		$address=$_POST['diachi'];
 		$pass=$_POST['pass'];
-		$dienthoai=$_POST['dienthoai'];
-		$sql_dangky=mysqli_query($conn, "insert into dangky (tenkhachhang,email,matkhau,dienthoai,diachinhan) value('$tenkh','$email','$pass','$dienthoai','$diachi')");
+		$phone=$_POST['dienthoai'];
+      $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      $charactersLength = strlen($characters);
+      $randomString = '';
+      for ($i = 0; $i < 6; $i++) {
+          $randomString .= $characters[rand(0, $charactersLength - 1)];
+      }
+    $customer_id=$randomString;
+      
+		$sql_dangky=mysqli_query($conn, "insert into register (customer_name,email,password,phone_number,address,customer_id) value('$ctname','$email','$pass','$phone','$address','$customer_id')");
 		    
 	if($sql_dangky){
-		echo '<h3 style="margin-left:5px;">Bạn đã đăng ký thành công</h3>';
+		echo '<h3 style="margin-left:5px;">Sign Up Success</h3>';
 		echo '<a href="?quanly=dangnhap" style="margin:20px;text-decoration:none;">Quay lại để đăng nhập mua hàng</a>';
 	}
 	}

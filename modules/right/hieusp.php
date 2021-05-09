@@ -1,14 +1,14 @@
 <?php
-	$sql_loaisp="select * from sanpham where producer='$_GET[id]'";
+	$sql_loaisp="select * from product_admin where producer='$_GET[id]'";
 	$num_loaisp=mysqli_query($conn, $sql_loaisp);
 	$count=mysqli_num_rows($num_loaisp);
 ?>
 <?php
-	$sql_tenloaisp="select tenhieusp from hieusp where idhieusp='$_GET[id]' ";
+	$sql_tenloaisp="select producer_name from producer where producer_id='$_GET[id]' ";
 	$row=mysqli_query($conn, $sql_tenloaisp);
 	$dong=mysqli_fetch_array($row);
 ?>
-	<div class="tieude"><?php echo $dong['tenhieusp'] ?></div>
+	<div class="tieude"><?php echo $dong['producer_name'] ?></div>
                 	<ul class="product">
                      <?php
 					 if($count>0){
